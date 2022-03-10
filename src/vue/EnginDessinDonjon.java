@@ -28,6 +28,7 @@ import java.util.Vector;
 import donjon.Case;
 import donjon.Configuration;
 import donjon.Donjon;
+import personnage.AbstractCreature;
 import physique.Direction;
 import physique.Position;
 import physique.*;
@@ -65,15 +66,18 @@ public class EnginDessinDonjon {
      * @param g2(Graphics2D), enginGraphic 2D java.swing
      * @param creatures(vecteur), vecteur des créatures du jeu
      */
-	/*
+
 	public void dessinerCreatures(Graphics2D g2, Vector<AbstractCreature> creatures){
 		for(int i=0;i<creatures.size();i++){
 			AbstractCreature creature = creatures.get(i);
-			if(creature.getCase().getDecouverte() && creature.getVivant()){
+
+			if(creature.getCase().estDecouverte() && creature.getVivant()){
 				dessinerCreature(g2, convertirIJaPixel(creature.getPos()), creature);
 			}
+
+
 		}
-	}*/
+	}
 
     /**
      * convertirIJaPixel, permet de dessiner toutes les creatures vivantes
@@ -165,7 +169,7 @@ public class EnginDessinDonjon {
      * @param posCreature(Position), position en coordonnee pixel
      * @param creature(AbstractCreature), case a afficher
      */
-	/*
+
 	private void dessinerCreature(Graphics2D g2, Position posCreature, AbstractCreature creature){
 
 		// affiche la créature en fonction du type de la classe
@@ -180,7 +184,7 @@ public class EnginDessinDonjon {
 			g2.setColor(Color.GRAY);
 			g2.fillOval(posCreature.getJ()-15, posCreature.getI()-15, LONGUEUR_CASE, LONGUEUR_CASE);
 		}
-	}*/
+	}
 
     /**
      * dessinerJoueur, permet de dessiner le joueur

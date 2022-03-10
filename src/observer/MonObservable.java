@@ -6,6 +6,8 @@ package observer;
  * @version Hiver 2022 - TP2
  */
 
+import personnage.Joueur;
+
 import java.util.ArrayList;
 
 public abstract class MonObservable {

@@ -46,6 +46,9 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
     
     private static Random nbrAleat = new Random();
 
+    //Joueur ajouter
+    private Joueur leJoueur = new Joueur(getDonjon().getCaseDebutetFin()[0].getCopiePosition());
+
     /**
      * constructeur du plan de jeu
      */
@@ -238,4 +241,9 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
             }
     	}
     }
+    //fonction rajoutee
+    public Joueur getJoueur(){
+        return this.leJoueur;
+    }
+
 }
