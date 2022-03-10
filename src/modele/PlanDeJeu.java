@@ -17,8 +17,6 @@ import java.util.ArrayList;
  * @version Hiver 2022 - TP2
  */
 
-import
-
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
@@ -208,8 +206,8 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
             
             if (creatureType == 0) //c'est une araignee
             {
-            	i = nbrAleat.nextInt(10);
-            	j = nbrAleat.nextInt(10);
+            	x = nbrAleat.nextInt(10);
+            	y = nbrAleat.nextInt(10);
             	
             	position = new Position(x, y); //définit la position aléatoire
             	creature = new Araigne(position); //définit le personnage avec la position aléatoire 
@@ -219,8 +217,8 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
             
             else if (creatureType == 1) //c'est un dragon
             {
-            	i = nbrAleat.nextInt(10);
-            	j = nbrAleat.nextInt(10);
+            	x = nbrAleat.nextInt(10);
+            	y = nbrAleat.nextInt(10);
             	
             	position = new Position(x, y); //définit la position aléatoire
             	creature = new Dragon(position); //définit le personnage avec la position aléatoire
@@ -230,8 +228,8 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
             
             else if (creatureType == 2) //c'est un minotaure
             {
-            	i = nbrAleat.nextInt(10);
-            	j = nbrAleat.nextInt(10);
+            	x = nbrAleat.nextInt(10);
+            	y = nbrAleat.nextInt(10);
             	
             	position = new Position(x, y); //définit la position aléatoire
             	creature = new Minotaure(position); //définit le personnage avec la position aléatoire   

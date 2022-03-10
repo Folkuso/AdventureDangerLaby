@@ -14,7 +14,7 @@ import physique.Position;
 
 import java.util.Observable;
 
-import dongon.Case;
+import donjon.Case;
 import observer.MonObservable;
 
 import javax.swing.*;
@@ -76,41 +76,11 @@ public abstract class AbstractPersonnage extends MonObservable {
 	}
 }
 
-class Joueur extends AbstractPersonnage {
 
-	
-}
 
-abstract class AbstractCreature extends AbstractPersonnage {
 
-	public AbstractCreature(Position pos){
-		super(pos);
-	}
-}
 
-class Araigne extends AbstractCreature {
 
-	public Araigne(Position pos){
-		super(pos);
-	}
 
-	public void seDeplacer(int direction){
-			super.seDeplacer(direction);
-			super.seDeplacer(direction);
-	}
-	
-}
 
-class Minotaure extends AbstractCreature {
 
-	public Minotaure(Position pos){
-		super(pos);
-	}
-}
-
-class Dragon extends AbstractCreature {
-	
-	public Dragon(Position pos){
-		super(pos);
-	}
-}
