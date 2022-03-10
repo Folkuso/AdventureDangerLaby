@@ -76,7 +76,7 @@ public abstract class AbstractPersonnage extends MonObservable {
 	}
 }
 
-abstract class Joueur extends AbstractPersonnage {
+class Joueur extends AbstractPersonnage {
 
 	
 }
