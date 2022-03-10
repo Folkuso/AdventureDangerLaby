@@ -83,15 +83,23 @@ public class Donjon {
     	//À corriger il y a pls erreurs   // Il y a surement un erreur lorsque les valeur sont null
         Case voisin = null;
         Configuration instance = Configuration.getInstance();
+        Position voisinAlea;
         
         if(getNbVoisinsNonDeveloppe(p) > 0)
         {
         	 do 
              {
              	voisin = getVoisinAlea(p);
-             }while(!voisin.estDeveloppe() 
+             	if(voisin == null)
+             	{
+             		voisinAlea = p.clone();
+             		voisinAlea.additionnerPos(Direction.directionAPosition(Direction.obtenirDirAlea()));
+             		voisin = new Case(voisinAlea);
+             		
+             	}
+             }while(((casesJeu[voisin.getCopiePosition().getI()][voisin.getCopiePosition().getJ()] == null ||!casesJeu[voisin.getCopiePosition().getI()][voisin.getCopiePosition().getJ()].estDeveloppe() )
              		&&(voisin.getCopiePosition().getI() >= 0 && voisin.getCopiePosition().getI() < instance.getConfig(Configuration.NB_LIGNES)
-                     && voisin.getCopiePosition().getJ() >= 0 && voisin.getCopiePosition().getJ() < instance.getConfig(Configuration.NB_COLONNES)));
+                     && voisin.getCopiePosition().getJ() >= 0 && voisin.getCopiePosition().getJ() < instance.getConfig(Configuration.NB_COLONNES))));
              
         }
        
@@ -134,6 +142,7 @@ public class Donjon {
         // l'empile
         PileSChainee pile = new PileSChainee();
         pile.empiler(this.caseDepart);
+        
         //tant que la pile n'est pas vide, continue
         while(!pile.estVide())
         {
@@ -141,6 +150,7 @@ public class Donjon {
             aTesterC = (Case)pile.regarder();
             // obtient sa position
             aTesterP = aTesterC.getCopiePosition();
+            casesJeu[aTesterP.getI()][aTesterP.getJ()] = aTesterC;
             // indique que cette case est maintenant developpee
             aTesterC.setDeveloppe(true);
             // verifie si cette case a un voisin non developpe
