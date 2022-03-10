@@ -75,6 +75,22 @@ public abstract class AbstractPersonnage extends MonObservable {
 	}
 }
 
+public abstract class Joueur extends AbstractPersonnage {
+	
+}
+
 public abstract class AbstractCreature extends AbstractPersonnage {
+	
+}
+
+public abstract class Araigne extends AbstractCreature {
+	
+}
+
+public abstract class Minotaure extends AbstractCreature {
+	
+}
+
+public abstract class Dragon extends AbstractCreature {
 	
 }
