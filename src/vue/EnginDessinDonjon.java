@@ -29,6 +29,7 @@ import donjon.Case;
 import donjon.Configuration;
 import donjon.Donjon;
 import personnage.AbstractCreature;
+import personnage.*;
 import physique.Direction;
 import physique.Position;
 import physique.*;
@@ -71,9 +72,9 @@ public class EnginDessinDonjon {
 		for(int i=0;i<creatures.size();i++){
 			AbstractCreature creature = creatures.get(i);
 
-			if(creature.getCase().estDecouverte() && creature.getVivant()){
+			//if(creature.getCase().estDecouverte() && creature.getVivant()){
 				dessinerCreature(g2, convertirIJaPixel(creature.getPos()), creature);
-			}
+			//}
 
 
 		}

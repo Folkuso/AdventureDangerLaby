@@ -8,4 +8,5 @@ public abstract class AbstractCreature extends AbstractPersonnage {
     public AbstractCreature(Position pos){
         super(pos);
     }
+
 }
