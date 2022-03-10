@@ -76,12 +76,12 @@ public abstract class AbstractPersonnage extends MonObservable {
 	}
 }
 
-class Joueur extends AbstractPersonnage {
+abstract class Joueur extends AbstractPersonnage {
 
 	
 }
 
- abstract class AbstractCreature extends AbstractPersonnage {
+abstract class AbstractCreature extends AbstractPersonnage {
 
 	public AbstractCreature(Position pos){
 		super(pos);
@@ -104,6 +104,7 @@ class Minotaure extends AbstractCreature {
 }
 
 class Dragon extends AbstractCreature {
+	
 	public Dragon(Position pos){
 		super(pos);
 	}

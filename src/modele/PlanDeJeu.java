@@ -45,6 +45,8 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
 
     private static final PlanDeJeu instance = new PlanDeJeu();
     private static Thread t;
+    
+    private static Random nbrAleat = new Random();
 
     /**
      * constructeur du plan de jeu
@@ -125,13 +127,11 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
      * m√©thode qui lance un nouveau niveau
      */
     private void  nouveauNiveau(){
-
+    	
         // la partie est toujours en cours
         partieEnCours = true;
         // cr√©e un nouveau donjon
         this.donjon = new Donjon();
-
-
 
         // si la t√¢che qui g√®re les cr√©ature
         // n'a pas encore √©t√© lanc√©, la lance.
@@ -194,14 +194,50 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
     	Configuration instance = Configuration.getInstance();
     	
     	//vide le vecteur crÈatures
-    	for(i=0;i<listeCreatures.size();i++)
+    	for(i=0;i<this.listeCreatures.size();i++)
     	{
-    		listeCreatures.remove(i);
+    		this.listeCreatures.remove(i);
     	}
     	
-    	for(i = 0;i<instance.;i++)
+    	for(i = 0;i<instance.getConfig(Configuration.NB_CREATURES);i++)
     	{
-    		
+    		Position position;
+    		AbstractCreature creature;
+    		int creatureType, x, y;
+            creatureType = nbrAleat.nextInt(3); //choisit un type de crÈature alÈatoirement
+            
+            if (creatureType == 0) //c'est une araignee
+            {
+            	i = nbrAleat.nextInt(10);
+            	j = nbrAleat.nextInt(10);
+            	
+            	position = new Position(x, y); //dÈfinit la position alÈatoire
+            	creature = new Araigne(position); //dÈfinit le personnage avec la position alÈatoire 
+            	
+            	listeCreatures.add(creature);
+            }
+            
+            else if (creatureType == 1) //c'est un dragon
+            {
+            	i = nbrAleat.nextInt(10);
+            	j = nbrAleat.nextInt(10);
+            	
+            	position = new Position(x, y); //dÈfinit la position alÈatoire
+            	creature = new Dragon(position); //dÈfinit le personnage avec la position alÈatoire
+            	
+            	listeCreatures.add(creature);
+            }
+            
+            else if (creatureType == 2) //c'est un minotaure
+            {
+            	i = nbrAleat.nextInt(10);
+            	j = nbrAleat.nextInt(10);
+            	
+            	position = new Position(x, y); //dÈfinit la position alÈatoire
+            	creature = new Minotaure(position); //dÈfinit le personnage avec la position alÈatoire   
+            	
+            	listeCreatures.add(creature);
+            }
     	}
     }
 }

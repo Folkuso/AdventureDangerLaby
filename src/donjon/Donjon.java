@@ -5,14 +5,14 @@ import java.util.Random;
 
 public class Donjon {
 
-	Case caseDepart;
+    Case caseDepart;
     Case caseFin;
     Case[][] casesJeu;
-
+    
     Random aleatoire = new Random();
 
     public Donjon() //Constructeur sans paramètres
-    {
+    { 
         //reference aux configurations
         Configuration instance = Configuration.getInstance();
         //initialise le tableau 2D a l'aide des dimensions provenant des configurations
@@ -53,22 +53,23 @@ public class Donjon {
     {
     	//Modifier 
         int i, compte = 0;
-        
-        Case voisin;
-        Position copieVoisin;
+        Case voisinC;
+        Position voisinP = p.clone();
         Configuration instance = Configuration.getInstance();
 
 
         //pour toutes les directions
         for(i= 0 ; i< 4;i++)
         {
-            //aTester.setVoisin(i, casesJeu[p.getI()][p.getJ()]);  pas besoin de set voisin ici
-            voisin = casesJeu[p.getI()][p.getJ()].getVoisin(i);
-            copieVoisin = voisin.getCopiePosition();
-            if(copieVoisin.getI()>=0 && copieVoisin.getI()<instance.getConfig(Configuration.NB_LIGNES)
-                    && copieVoisin.getJ() >= 0 && copieVoisin.getJ() < instance.getConfig(Configuration.NB_COLONNES))
+            voisinP.additionnerPos(Direction.directionAPosition(i));;
+            if(voisinP.getI()>=0 && voisinP.getI()<instance.getConfig(Configuration.NB_LIGNES)
+                    && voisinP.getJ() >= 0 && voisinP.getJ() < instance.getConfig(Configuration.NB_COLONNES))
             {
-                if(!voisin.estDeveloppe())
+            	if(casesJeu[voisinP.getI()][voisinP.getJ()] == null)
+            	{
+            		compte ++;
+            	}
+            	else if(!casesJeu[voisinP.getI()][voisinP.getJ()].estDeveloppe())
                 {
                     compte++;
                 }
@@ -79,49 +80,35 @@ public class Donjon {
 
     public Case getVoisinLibreAlea(Position p) //retourne aléatoirement un voisin libre de la case p
     {
-    	//� corriger il y a pls erreurs
-        int i;
-        boolean trouver = false;
-        Position voisin = p.clone();
+    	//� corriger il y a pls erreurs   // Il y a surement un erreur lorsque les valeur sont null
+        Case voisin = null;
         Configuration instance = Configuration.getInstance();
-
-        //pour toutes les directions
-        i = Direction.obtenirDirAlea();
-        while (!casesJeu[voisin.getI()][voisin.getJ()].estDeveloppe())
+        
+        if(getNbVoisinsNonDeveloppe(p) > 0)
         {
-            if(voisin.getI()>=0 && voisin.getI()<instance.getConfig(Configuration.NB_LIGNES)
-                    && voisin.getJ() >= 0 && voisin.getJ() < instance.getConfig(Configuration.NB_COLONNES))
-            {
-                if(!voisin.estDeveloppe())
-                {
-                    trouver = true;
-                }
-            }
-
-            else
-            {
-                i = Direction.obtenirDirAlea();
-            }
+        	 do 
+             {
+             	voisin = getVoisinAlea(p);
+             }while(!voisin.estDeveloppe() 
+             		&&(voisin.getCopiePosition().getI() >= 0 && voisin.getCopiePosition().getI() < instance.getConfig(Configuration.NB_LIGNES)
+                     && voisin.getCopiePosition().getJ() >= 0 && voisin.getCopiePosition().getJ() < instance.getConfig(Configuration.NB_COLONNES)));
+             
         }
-
-        return aTester;
+       
+        return voisin;
     }
 
 
     public Case getVoisinAlea(Position p) //retourne un voisin choisi aléatoirement (que le voisin soit développé ou pas)
-    {
+    { //vu
         Configuration instance = Configuration.getInstance();
         Position positionAlea;
         Case leVoisinAlea;
-
-        int intDirection;
+        
 
         do {
 
-            intDirection = Direction.obtenirDirAlea();
-
-            positionAlea = Direction.directionAPosition(intDirection);
-
+            positionAlea = Direction.directionAPosition(Direction.obtenirDirAlea());
             positionAlea.additionnerPos(p);
 
            //est-ce que je suis dans le donjon
@@ -130,7 +117,7 @@ public class Donjon {
         		positionAlea.getJ() >= 0 && 
         		positionAlea.getJ() < instance.getConfig(Configuration.NB_COLONNES)));
 
-        leVoisinAlea = new Case(positionAlea);
+        leVoisinAlea = casesJeu[positionAlea.getI()][positionAlea.getJ()];
 
         return leVoisinAlea;
     }
@@ -175,8 +162,8 @@ public class Donjon {
                 // appel a setVoisin pour les deux cases
                 // note: la droite d'une case est la gauche de l'autre,
                 // utiliser directionOpposee
-                aTesterC.setVoisin(voisinDirection);
-                voisinC.setVoisin(Direction.directionOpposee(voisinDirection));
+                aTesterC.setVoisin(voisinDirection, voisinC);
+                voisinC.setVoisin(Direction.directionOpposee(voisinDirection),aTesterC);
 
                 // ajoute le voisin à la pile
                 pile.empiler(voisinC);
