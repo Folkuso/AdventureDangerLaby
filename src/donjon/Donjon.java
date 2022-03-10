@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Donjon {
 
-    Case caseDepart;
+	Case caseDepart;
     Case caseFin;
     Case[][] casesJeu;
 

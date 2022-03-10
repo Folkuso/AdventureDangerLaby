@@ -1,5 +1,7 @@
 package modele;
 
+import java.util.ArrayList;
+
 /**
  * Le plan de jeu est la classe qui supporte le modÃ¨le du programme.
  * Il contient:
@@ -15,6 +17,7 @@ package modele;
  * @version Hiver 2022 - TP2
  */
 
+import
 
 import java.util.Observable;
 import java.util.Observer;
@@ -29,9 +32,12 @@ import observer.MonObservable;
 import observer.MonObserver;
 import physique.Direction;
 import physique.Position;
+import personnage.*;
 
 public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
 
+	private ArrayList<AbstractCreature> listeCreatures = new ArrayList<>();
+	
     private Donjon donjon;
     private boolean partieEnCours = false;
     private int niveauCourant = 0;
@@ -176,5 +182,26 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
         // remise Ã  zÃ©ro du jeu
         Configuration.remiseAZero();
     }
-
+    
+    //Méthode qui initialise les créatures
+    private void initCreature()
+    {
+    	int i;
+    	
+    	//référence aux cases du donjon
+    	Case reference[][] = this.donjon.getCasesJeu();
+    	//référence aux configurations du jeu
+    	Configuration instance = Configuration.getInstance();
+    	
+    	//vide le vecteur créatures
+    	for(i=0;i<listeCreatures.size();i++)
+    	{
+    		listeCreatures.remove(i);
+    	}
+    	
+    	for(i = 0;i<instance.;i++)
+    	{
+    		
+    	}
+    }
 }
