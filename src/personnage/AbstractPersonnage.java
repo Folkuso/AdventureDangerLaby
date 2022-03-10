@@ -17,6 +17,8 @@ import java.util.Observable;
 import dongon.Case;
 import observer.MonObservable;
 
+import javax.swing.*;
+
 public abstract class AbstractPersonnage extends MonObservable {
 
 	// proprietes d'un personnage
@@ -49,7 +51,6 @@ public abstract class AbstractPersonnage extends MonObservable {
 			this.avertirLesObservers();
 		}
 	}
-
 	/**
 	 * méthode d'accès pour la position du personnage
 	 * @return la position du personnage (par copie)
@@ -75,22 +76,35 @@ public abstract class AbstractPersonnage extends MonObservable {
 	}
 }
 
-public abstract class Joueur extends AbstractPersonnage {
+class Joueur extends AbstractPersonnage {
+
 	
 }
 
-public abstract class AbstractCreature extends AbstractPersonnage {
+ abstract class AbstractCreature extends AbstractPersonnage {
+
+	public AbstractCreature(Position pos){
+		super(pos);
+	}
+}
+
+class Araigne extends AbstractCreature {
+
+	public Araigne(Position pos){
+		super(pos);
+	}
 	
 }
 
-public abstract class Araigne extends AbstractCreature {
-	
+class Minotaure extends AbstractCreature {
+
+	public Minotaure(Position pos){
+		super(pos);
+	}
 }
 
-public abstract class Minotaure extends AbstractCreature {
-	
-}
-
-public abstract class Dragon extends AbstractCreature {
-	
+class Dragon extends AbstractCreature {
+	public Dragon(Position pos){
+		super(pos);
+	}
 }
