@@ -9,7 +9,7 @@ public class Case {
     private boolean finNiveau; //indique si la case est la fin d'un niveau
     private boolean developpe; //indique si la case a été développée par l'algorithme du labyrinthe
 
-    Case voisin[] = new Case[4]; //contient les références sur les voisins connectés
+    Case[] voisin = new Case[4]; //contient les références sur les voisins connectés
 
     //Constructeur avec paramètres
     public Case(Position p) //Reçoit une référence à une position
