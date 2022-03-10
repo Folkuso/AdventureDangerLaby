@@ -68,7 +68,7 @@ public class Case {
 
     public String toString() //Remplace un objet en string
     {
-        return "Position: [ "+this.casePosition.getI()+"] i"+"["+this.casePosition.getJ()+"] j"
+        return "Position: [ "+this.casePosition.getI()+"]i "+"["+this.casePosition.getJ()+"]j "
                 +"\nDécouverte par le Hero: "+this.estDecouverte()
                 +"\nFin du niveau: "+this.estFinNiveau()
                 +"\nDéveloppée par l'algorithme: "+this.estDeveloppe();
