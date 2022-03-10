@@ -1,5 +1,7 @@
 package personnage;
 
+import donjon.*;
+
 /**
  * Classe abstraite d'un personnage d'un jeu
  * 
@@ -17,7 +19,7 @@ import observer.MonObservable;
 
 public abstract class AbstractPersonnage extends MonObservable {
 
-	// propriétés d'un personnage
+	// proprietes d'un personnage
 	protected Position pos;
 	protected Case caseCourante;
 
@@ -71,6 +73,8 @@ public abstract class AbstractPersonnage extends MonObservable {
 	public Case getCase(){
 		return this.caseCourante;
 	}
+}
 
+public abstract class AbstractCreature extends AbstractPersonnage {
 	
 }
