@@ -166,7 +166,7 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
         nouveauNiveau();
     }
 
-    /**
+    /**`
      * gestion d'une partie perdu
      */
     private void partiePerdu(){
@@ -196,10 +196,7 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
     	Configuration instance = Configuration.getInstance();
     	
     	//vide le vecteur créatures
-    	for(i=0;i<this.listeCreatures.size();i++)
-    	{
-    		this.listeCreatures.remove(i);
-    	}
+        listeCreatures.clear();
     	
     	for(i = 0;i<instance.getConfig(Configuration.NB_CREATURES);i++)
     	{
@@ -210,19 +207,19 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
             
             if (creatureType == 0) //c'est une araignee
             {
-            	x = nbrAleat.nextInt(10);
-            	y = nbrAleat.nextInt(10);
-            	
+            	x = nbrAleat.nextInt(instance.getConfig(Configuration.NB_LIGNES));
+            	y = nbrAleat.nextInt(instance.getConfig(Configuration.NB_COLONNES));
+
             	position = new Position(x, y); //définit la position aléatoire
             	creature = new Araigne(position); //définit le personnage avec la position aléatoire 
-            	
+
             	listeCreatures.add(creature);
             }
             
             else if (creatureType == 1) //c'est un dragon
             {
-            	x = nbrAleat.nextInt(10);
-            	y = nbrAleat.nextInt(10);
+                x = nbrAleat.nextInt(instance.getConfig(Configuration.NB_LIGNES));
+                y = nbrAleat.nextInt(instance.getConfig(Configuration.NB_COLONNES));
             	
             	position = new Position(x, y); //définit la position aléatoire
             	creature = new Dragon(position); //définit le personnage avec la position aléatoire
@@ -232,8 +229,8 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
             
             else if (creatureType == 2) //c'est un minotaure
             {
-            	x = nbrAleat.nextInt(10);
-            	y = nbrAleat.nextInt(10);
+                x = nbrAleat.nextInt(instance.getConfig(Configuration.NB_LIGNES));
+                y = nbrAleat.nextInt(instance.getConfig(Configuration.NB_COLONNES));
             	
             	position = new Position(x, y); //définit la position aléatoire
             	creature = new Minotaure(position); //définit le personnage avec la position aléatoire   
