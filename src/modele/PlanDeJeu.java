@@ -97,7 +97,10 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
         while(partieEnCours){
 
             // d√©place toutes les cr√©atures √† compl√©ter
-
+        	for(int i=0; i< listeCreatures.size(); i++)
+        	{
+        		listeCreatures.get(i).seDeplacer(Direction.obtenirDirAlea());
+        	}
             // attend X nombre de secondes
             try {
                 TimeUnit.SECONDS.sleep(2);
@@ -129,7 +132,7 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
      * m√©thode qui lance un nouveau niveau
      */
     private void  nouveauNiveau(){
-    	
+    	initCreature();//Ajouter 2022-01-13
         // la partie est toujours en cours
         partieEnCours = true;
         // cr√©e un nouveau donjon
@@ -213,6 +216,9 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
             	position = new Position(x, y); //dÈfinit la position alÈatoire
             	creature = new Araigne(position); //dÈfinit le personnage avec la position alÈatoire 
 
+            	creature.attacherObserver(getInstance());//Ajouter 2022-01-13
+            	creature.setCase(reference[x][y]);//Ajouter 2022-01-13
+            	
             	listeCreatures.add(creature);
             }
             
@@ -224,6 +230,9 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
             	position = new Position(x, y); //dÈfinit la position alÈatoire
             	creature = new Dragon(position); //dÈfinit le personnage avec la position alÈatoire
             	
+            	creature.attacherObserver(getInstance());//Ajouter 2022-01-13
+            	creature.setCase(reference[x][y]);//Ajouter 2022-01-13
+            	
             	listeCreatures.add(creature);
             }
             
@@ -234,6 +243,9 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
             	
             	position = new Position(x, y); //dÈfinit la position alÈatoire
             	creature = new Minotaure(position); //dÈfinit le personnage avec la position alÈatoire   
+            	
+            	creature.attacherObserver(getInstance());//Ajouter 2022-01-13
+            	creature.setCase(reference[x][y]);//Ajouter 2022-01-13
             	
             	listeCreatures.add(creature);
             }
