@@ -256,4 +256,7 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
         return this.leJoueur;
     }
 
+    public ArrayList<AbstractCreature> getCreatures() {
+    	return this.listeCreatures;
+    }
 }
