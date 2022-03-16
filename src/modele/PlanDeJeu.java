@@ -34,7 +34,7 @@ import personnage.*;
 
 public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
 
-	private ArrayList<AbstractCreature> listeCreatures = new ArrayList<>();
+	private Vector<AbstractCreature> listeCreatures = new Vector<>();
 	
     private Donjon donjon;
     private boolean partieEnCours = false;
@@ -235,11 +235,11 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
     }
     
     //fonction rajoutee
-    public Joueur getJoueur(){
+    public Joueur getJoueur() {
         return this.leJoueur;
     }
 
-    public ArrayList<AbstractCreature> getCreatures() {
+    public Vector<AbstractCreature> getCreatures() {
     	return this.listeCreatures;
     }
 }

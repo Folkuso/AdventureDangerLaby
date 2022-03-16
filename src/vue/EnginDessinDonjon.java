@@ -55,12 +55,12 @@ public class EnginDessinDonjon {
      * @param g2(Graphics2D), enginGraphic 2D java.swing
      * @param joueur(Joueur), joueur à dessiner
      */
-	/*
+	
 	public void dessinerJoueur(Graphics2D g2, Joueur joueur){
 
 		// affiche le joueur en position labyrinthe
 		dessinerJoueur(g2, convertirIJaPixel(joueur.getPos()));
-	}*/
+	}
 
     /**
      * dessinerCreatures, permet de dessiner toutes les creatures vivantes
@@ -193,11 +193,11 @@ public class EnginDessinDonjon {
      * @param posCreature(Position), position en coordonnee pixel
      * @param creature(AbstractCreature), case a afficher
      */
-	/*
+	
 	private void dessinerJoueur(Graphics2D g2, Position posJoueur){
 
 		g2.setColor(Color.YELLOW);
 		g2.fillOval(posJoueur.getJ()-LONGUEUR_CASE/2, posJoueur.getI()-LONGUEUR_CASE/2, LONGUEUR_CASE, LONGUEUR_CASE);
-	}*/
+	}
 
 }

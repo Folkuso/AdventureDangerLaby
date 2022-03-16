@@ -67,8 +67,8 @@ public class PanneauDonjon extends JPanel implements MonObserver{
         g2.clearRect(0, 0, taille.width, taille.height);
         // re-dessine les éléments du jeu
         enginDessinDonjon.dessinerDonjon(g2, planDeJeu.getDonjon());
-        //enginDessinDonjon.dessinerCreatures(g2, planDeJeu.getCreatures());
-        //enginDessinDonjon.dessinerJoueur(g2, planDeJeu.getJoueur());
+        enginDessinDonjon.dessinerCreatures(g2, planDeJeu.getCreatures());
+        enginDessinDonjon.dessinerJoueur(g2, planDeJeu.getJoueur());
 
     }
 

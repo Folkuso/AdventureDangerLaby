@@ -33,6 +33,7 @@ public class CadrePrincipal extends JFrame implements Runnable {
      * @param problemManager
      */
     public CadrePrincipal(){
+    	System.out.println("Bonjour");
         this.addKeyListener(clavier);
         clavier.attacherPlanDeJeu(planDeJeu);
     }

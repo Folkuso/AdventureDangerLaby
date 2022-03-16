@@ -10,7 +10,6 @@ public class Joueur extends AbstractPersonnage {
         super(pos);
     }
 
-
     public void seDeplacer(int direction){
         // obtient une référence sur le voisin
         Case voisin = caseCourante.getVoisin(direction);
