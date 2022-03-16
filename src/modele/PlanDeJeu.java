@@ -233,6 +233,7 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
         	listeCreatures.add(creature);
     	}
     }
+    
     //fonction rajoutee
     public Joueur getJoueur(){
         return this.leJoueur;
