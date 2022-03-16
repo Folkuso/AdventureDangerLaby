@@ -38,7 +38,7 @@ public abstract class AbstractPersonnage extends MonObservable {
 	 * @param direction, direction du mouvement
 	 */
 	public void seDeplacer(int direction){
-		
+	
 		// obtient une référence sur le voisin
 		Case voisin = caseCourante.getVoisin(direction);
 		
@@ -48,8 +48,9 @@ public abstract class AbstractPersonnage extends MonObservable {
 			// met à jour la position
 			caseCourante = voisin;
 			pos.additionnerPos(Direction.directionAPosition(direction));
-			this.avertirLesObservers();
+			
 		}
+		this.avertirLesObservers();
 	}
 	/**
 	 * méthode d'accès pour la position du personnage

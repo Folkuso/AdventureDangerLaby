@@ -44,7 +44,7 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
     private static final PlanDeJeu instance = new PlanDeJeu();
     private static Thread t;
     
-    private static Random nbrAleat = new Random();
+    private  Random nbrAleat = new Random(); 
 
     //Joueur ajouter
     private Joueur leJoueur ;
@@ -132,12 +132,12 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
      * m√©thode qui lance un nouveau niveau
      */
     private void  nouveauNiveau(){
-    	initCreature();//Ajouter 2022-01-13
+    	
         // la partie est toujours en cours
         partieEnCours = true;
         // cr√©e un nouveau donjon
         this.donjon = new Donjon();
-
+        initCreature();//Ajouter 2022-01-13
         // si la t√¢che qui g√®re les cr√©ature
         // n'a pas encore √©t√© lanc√©, la lance.
         if(t ==null){
@@ -204,51 +204,33 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
     	for(i = 0;i<instance.getConfig(Configuration.NB_CREATURES);i++)
     	{
     		Position position;
-    		AbstractCreature creature;
+    		AbstractCreature creature = null;
     		int creatureType, x, y;
+    		
             creatureType = nbrAleat.nextInt(3); //choisit un type de crÈature alÈatoirement
+            
+            x = nbrAleat.nextInt(instance.getConfig(Configuration.NB_LIGNES));
+        	y = nbrAleat.nextInt(instance.getConfig(Configuration.NB_COLONNES));
+        	position = new Position(x, y); //dÈfinit la position alÈatoire
             
             if (creatureType == 0) //c'est une araignee
             {
-            	x = nbrAleat.nextInt(instance.getConfig(Configuration.NB_LIGNES));
-            	y = nbrAleat.nextInt(instance.getConfig(Configuration.NB_COLONNES));
-
-            	position = new Position(x, y); //dÈfinit la position alÈatoire
-            	creature = new Araigne(position); //dÈfinit le personnage avec la position alÈatoire 
-
-            	creature.attacherObserver(getInstance());//Ajouter 2022-01-13
-            	creature.setCase(reference[x][y]);//Ajouter 2022-01-13
-            	
-            	listeCreatures.add(creature);
+            	creature = new Araigne(position); //dÈfinit le personnage avec la position alÈatoire
             }
             
             else if (creatureType == 1) //c'est un dragon
             {
-                x = nbrAleat.nextInt(instance.getConfig(Configuration.NB_LIGNES));
-                y = nbrAleat.nextInt(instance.getConfig(Configuration.NB_COLONNES));
-            	
-            	position = new Position(x, y); //dÈfinit la position alÈatoire
             	creature = new Dragon(position); //dÈfinit le personnage avec la position alÈatoire
-            	
-            	creature.attacherObserver(getInstance());//Ajouter 2022-01-13
-            	creature.setCase(reference[x][y]);//Ajouter 2022-01-13
-            	
-            	listeCreatures.add(creature);
             }
             
             else if (creatureType == 2) //c'est un minotaure
             {
-                x = nbrAleat.nextInt(instance.getConfig(Configuration.NB_LIGNES));
-                y = nbrAleat.nextInt(instance.getConfig(Configuration.NB_COLONNES));
-            	
-            	position = new Position(x, y); //dÈfinit la position alÈatoire
             	creature = new Minotaure(position); //dÈfinit le personnage avec la position alÈatoire   
-            	
-            	creature.attacherObserver(getInstance());//Ajouter 2022-01-13
-            	creature.setCase(reference[x][y]);//Ajouter 2022-01-13
-            	
-            	listeCreatures.add(creature);
             }
+            
+            creature.attacherObserver(getInstance());//Ajouter 2022-01-13
+        	creature.setCase(reference[x][y]);//Ajouter 2022-01-13
+        	listeCreatures.add(creature);
     	}
     }
     //fonction rajoutee
@@ -260,3 +242,22 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
     	return this.listeCreatures;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
