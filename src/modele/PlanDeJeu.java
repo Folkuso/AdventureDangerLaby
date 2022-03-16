@@ -228,7 +228,7 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
             	creature = new Minotaure(position); //définit le personnage avec la position aléatoire   
             }
             
-            creature.attacherObserver(getInstance());//Ajouter 2022-01-13
+            creature.attacherObserver(this);//Ajouter 2022-01-13
         	creature.setCase(reference[x][y]);//Ajouter 2022-01-13
         	listeCreatures.add(creature);
     	}
