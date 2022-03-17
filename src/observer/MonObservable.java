@@ -12,24 +12,25 @@ import java.util.ArrayList;
 
 public abstract class MonObservable {
 
-    // liste des observers
-    ArrayList<MonObserver> observers = new ArrayList<MonObserver>();
+	// liste des observers
+	ArrayList<MonObserver> observers = new ArrayList<MonObserver>();
 
-    /**
-     * méthode pour attacher un Observer
-     * @param observer
-     */
-    public void attacherObserver(MonObserver observer){
-        observers.add(observer);
-    }
+	/**
+	 * méthode pour attacher un Observer
+	 * 
+	 * @param observer
+	 */
+	public void attacherObserver(MonObserver observer) {
+		observers.add(observer);
+	}
 
-    /**
-     * méthode pour avertir tous les observers
-     */
-    public void avertirLesObservers(){
-        for(MonObserver observer:observers){
-            observer.avertir();
-        }
-    }
+	/**
+	 * méthode pour avertir tous les observers
+	 */
+	public void avertirLesObservers() {
+		for (MonObserver observer : observers) {
+			observer.avertir();
+		}
+	}
 
 }

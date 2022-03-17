@@ -14,8 +14,6 @@ public class Direction {
 
     public static int directionOpposee(int direction) {
 
-        //ne sait pas si peut retourner meme variable ou doit retourner une nouvelle
-
         switch(direction) {
 
             case HAUT:
