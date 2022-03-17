@@ -75,8 +75,6 @@ public class EnginDessinDonjon {
 			//if(creature.getCase().estDecouverte() && creature.getVivant()){
 				dessinerCreature(g2, convertirIJaPixel(creature.getPos()), creature);
 			//}
-
-
 		}
 	}
 

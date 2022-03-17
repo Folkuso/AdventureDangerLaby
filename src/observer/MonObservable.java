@@ -21,11 +21,6 @@ public abstract class MonObservable {
      */
     public void attacherObserver(MonObserver observer){
         observers.add(observer);
-        //Pour tester
-        for (int i=0;i<observers.size();i++)
-        {
-        	System.out.println(observers.get(i));
-        }
     }
 
     /**

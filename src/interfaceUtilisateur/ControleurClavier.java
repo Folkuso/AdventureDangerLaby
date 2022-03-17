@@ -47,7 +47,6 @@ public class ControleurClavier implements KeyListener{
 		// obtient une référence au joueur courant
 		Joueur joueurControlle =  planDeJeu.getJoueur();
 		
-		System.out.println("DeplaceJoueur");
 		// s'assure qu'un joueur a été initialisé
 		if(joueurControlle != null){
 

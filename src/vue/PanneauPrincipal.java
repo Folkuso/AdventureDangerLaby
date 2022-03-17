@@ -37,7 +37,6 @@ public class PanneauPrincipal extends JPanel{
         initComposantes();
     }
 
-
     /*
      * Dimensionne et ajoute les differents panneaux e leur place.
      */

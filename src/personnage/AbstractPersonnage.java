@@ -76,12 +76,3 @@ public abstract class AbstractPersonnage extends MonObservable {
 		return this.caseCourante;
 	}
 }
-
-
-
-
-
-
-
-
-

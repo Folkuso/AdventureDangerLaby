@@ -4,8 +4,6 @@ public class PileSChainee {
     private Noeud sommet;
     private int nbElements;
 
-
-
     public PileSChainee()
     {
         nbElements = 0;
