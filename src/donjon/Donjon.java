@@ -19,6 +19,7 @@ public class Donjon {
         Configuration instance = Configuration.getInstance();
         //initialise le tableau 2D a l'aide des dimensions provenant des configurations
         casesJeu =  new Case[instance.getConfig(Configuration.NB_LIGNES)][instance.getConfig(Configuration.NB_COLONNES)];
+
         for(i=0; i <instance.getConfig(Configuration.NB_LIGNES); i++)
         {
             for(j=0; j<instance.getConfig(Configuration.NB_COLONNES); j++)
@@ -28,7 +29,7 @@ public class Donjon {
         }
         //case depart choisie au hasard, 2 aleatoire 1 pour i et 1 pour j
         caseDepart = new Case(getPositionAlea());
-
+        caseDepart.setDecouverte(true);
         // produit le labyrinthe
         this.produireLabyrinthe();
         // assigne la fin

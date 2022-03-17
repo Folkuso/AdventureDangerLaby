@@ -20,6 +20,7 @@ public class Joueur extends AbstractPersonnage {
             // met à jour la position
             caseCourante = voisin;
             pos.additionnerPos(Direction.directionAPosition(direction));
+            this.getCase().setDecouverte(true);
             this.avertirLesObservers();
         }
     }
