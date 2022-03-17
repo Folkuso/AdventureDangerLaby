@@ -60,7 +60,6 @@ public class Donjon {
 
     public int getNbVoisinsNonDeveloppe(Position p) //retourne le nombre de voisins pas développé autour de la case p
     {
-    	//Modifier 
         int i, compte = 0;
         Position voisinP;
         Configuration instance = Configuration.getInstance();
@@ -85,7 +84,6 @@ public class Donjon {
 
     public Case getVoisinLibreAlea(Position p) //retourne aléatoirement un voisin libre de la case p
     {
-    	//� corriger il y a pls erreurs   // Il y a surement un erreur lorsque les valeur sont null
         Case voisin = null;
 
         if(getNbVoisinsNonDeveloppe(p) > 0)
@@ -103,7 +101,7 @@ public class Donjon {
 
 
     public Case getVoisinAlea(Position p) //retourne un voisin choisi aléatoirement (que le voisin soit développé ou pas)
-    { //vu
+    { 
         Configuration instance = Configuration.getInstance();
         Position positionAlea;
         Case leVoisinAlea;
@@ -114,7 +112,7 @@ public class Donjon {
             positionAlea = Direction.directionAPosition(Direction.obtenirDirAlea());
             positionAlea.additionnerPos(p);
 
-           //est-ce que je suis dans le donjon
+           //Question : Est-ce que je suis dans le donjon?
         } while(!(positionAlea.getI()>=0 &&
         		positionAlea.getI()<instance.getConfig(Configuration.NB_LIGNES) &&
         		positionAlea.getJ() >= 0 &&
@@ -145,7 +143,7 @@ public class Donjon {
             aTesterC = (Case)pile.regarder();
             // obtient sa position
             aTesterP = aTesterC.getCopiePosition();
-            casesJeu[aTesterP.getI()][aTesterP.getJ()] = aTesterC; // a enlever plus tard ( inutille)
+            casesJeu[aTesterP.getI()][aTesterP.getJ()] = aTesterC;
             // indique que cette case est maintenant developpee
             aTesterC.setDeveloppe(true);
             // verifie si cette case a un voisin non developpe

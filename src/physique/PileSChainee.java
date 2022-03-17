@@ -4,6 +4,8 @@ public class PileSChainee {
     private Noeud sommet;
     private int nbElements;
 
+
+
     public PileSChainee()
     {
         nbElements = 0;
@@ -44,9 +46,10 @@ public class PileSChainee {
         return rep;
     }
 
-    public boolean estVide()
+    public boolean estVide() 
     {
-        return nbElements == 0;
+    
+    	return nbElements == 0 ;
     }
 
     private class Noeud
