@@ -52,10 +52,9 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
     /**
      * constructeur du plan de jeu
      */
-    public PlanDeJeu(){
+    public PlanDeJeu() {
         partieEnCours = true;
         nouveauNiveau();
-        leJoueur = new Joueur(getDonjon().getCaseDebutetFin()[0].getCopiePosition());
     }
 
     /**
@@ -138,6 +137,7 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
         // crée un nouveau donjon
         this.donjon = new Donjon();
         initCreature();//Ajouter 2022-01-13
+        initJoueur();
         // si la tâche qui gère les créature
         // n'a pas encore été lancé, la lance.
         if(t ==null){
@@ -232,6 +232,15 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
         	creature.setCase(reference[x][y]);//Ajouter 2022-01-13
         	listeCreatures.add(creature);
     	}
+    }
+    
+    private void initJoueur() {
+    	Case depart = this.donjon.getCaseDebutetFin()[0];
+    	Position positionDepart = new Position(depart.getCopiePosition().getI(), depart.getCopiePosition().getJ());
+    	
+    	this.leJoueur = new Joueur(positionDepart);
+    	this.leJoueur.attacherObserver(this);
+    	this.leJoueur.setCase(depart);
     }
     
     //fonction rajoutee
