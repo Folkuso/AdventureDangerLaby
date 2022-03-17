@@ -106,6 +106,11 @@ public class PlanDeJeu extends MonObservable implements MonObserver, Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
+            if(leJoueur.getCase().equals(donjon.getCaseDebutetFin()[1])){
+                partieEnCours=false;
+                partieGagne();
+            }
         }
     }
 
